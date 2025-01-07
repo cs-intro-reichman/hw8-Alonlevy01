@@ -69,7 +69,7 @@ public class Network {
         int j = -1;
         
         // Finds the users
-        for (int k = 0; k < 10; k++) {
+        for (int k = 0; k < this.userCount; k++) {
             // Finds first user.
             if (this.users[k].getName().equalsIgnoreCase(name1)) {
                 i = k;
@@ -83,7 +83,7 @@ public class Network {
         }
         
         // False if one or both are not in the network.
-        if ((i == -1) || (j == -1)) return false;
+        if ((i == -1) || (j == -1) || (j == i)) return false;
 
         // does the follows
         return this.users[i].addFollowee(name2);
@@ -123,6 +123,8 @@ public class Network {
         int max = 0;
         int position = 0;
 
+        if (this.userCount == 0) return null;
+
         for (int i = 0; i < this.userCount; i++) {
             counter = 0;
             for (int j = 0; j < this.userCount; j++) {
@@ -151,9 +153,9 @@ public class Network {
 
     // Returns a textual description of all the users in this network, and who they follow.
     public String toString() {
-        String networkString = "";
+        String networkString = "Network:";
         for (int i = 0; i < this.userCount; i++) {
-            networkString = networkString + " " + users[i].toString() + "\n";
+            networkString = networkString + "\n" + users[i].toString();
         }
        return networkString;
     }
