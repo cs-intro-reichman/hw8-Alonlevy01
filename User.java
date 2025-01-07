@@ -44,7 +44,7 @@
     /** If this user follows the given name, returns true; otherwise returns false. */
     public boolean follows(String name) {
         int i = 0;
-        while ((i != maxfCount) && (this.follows[i] != null)) {
+        while ((i < this.fCount)) {
             if (this.follows[i].equals(name)) return true;
             i++;
         }
