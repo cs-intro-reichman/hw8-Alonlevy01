@@ -28,7 +28,7 @@ public class Network {
     public User getUser(String name) {
         int i = 0;
 
-        while ((users[i] != null) && (!users[i].getName().equals(name))) {
+        while ((users[i] != null) && (!users[i].getName().equalsIgnoreCase(name))) {
             i++;
         }
 
@@ -51,7 +51,7 @@ public class Network {
         if (this.userCount == this.users.length) return false;
 
         for (int i = 0; i < this.userCount; i++) {
-            if (this.users[i].getName().equals(name)) {
+            if (this.users[i].getName().equalsIgnoreCase(name)) {
                 return false;
             }
         }
@@ -71,11 +71,11 @@ public class Network {
         // Finds the users
         for (int k = 0; k < 10; k++) {
             // Finds first user.
-            if (this.users[k].getName().equals(name1)) {
+            if (this.users[k].getName().equalsIgnoreCase(name1)) {
                 i = k;
             }
             // Finds second user.
-            if (this.users[k].getName().equals(name2)) {
+            if (this.users[k].getName().equalsIgnoreCase(name2)) {
                 j = k;
             }
             // Breaks if found both names for efficiency.
@@ -100,7 +100,7 @@ public class Network {
 
         while (i < this.userCount) {
             // Dont compare user to himself
-            if (users[i].getName().equals(name)) {
+            if (users[i].getName().equalsIgnoreCase(name)) {
                 i++;
             } 
 

@@ -44,8 +44,9 @@
     /** If this user follows the given name, returns true; otherwise returns false. */
     public boolean follows(String name) {
         int i = 0;
+
         while ((i < this.fCount)) {
-            if (this.follows[i].equals(name)) return true;
+            if (this.follows[i].equalsIgnoreCase(name)) return true;
             i++;
         }
         return false;
@@ -76,7 +77,7 @@
         int i = 0;
         
         // Finds name in the array.
-        while (i < this.fCount && (!this.follows[i].equals(name)) ) {
+        while (i < this.fCount && (!this.follows[i].equalsIgnoreCase(name)) ) {
             i++;
         }
         
@@ -107,7 +108,7 @@
        while ((i!=maxfCount) && (this.follows[i] != null)) {
             j = 0;
             while ( (j!=maxfCount) && (other.follows[j] != null)) {
-                if (this.follows[i].equals(other.follows[j])) counter++;
+                if (this.follows[i].equalsIgnoreCase(other.follows[j])) counter++;
                 j++;
             }
             i++;
