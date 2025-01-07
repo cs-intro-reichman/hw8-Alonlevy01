@@ -38,6 +38,10 @@ public class Network {
         return null;
     }
 
+    public int getUserCount() {
+        return this.userCount;
+    }
+
     /** Adds a new user with the given name to this network.
     *  If ths network is full, does nothing and returns false;
     *  If the given name is already a user in this network, does nothing and returns false;
